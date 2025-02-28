@@ -20,4 +20,3 @@ chmod +x add-local-user.sh
 Run the script as a superuser to create users 
 sudo ./add-local-user.sh
 
-## For full script, check [linux-user-management](creating-local-users.sh)
