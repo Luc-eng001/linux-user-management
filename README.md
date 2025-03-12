@@ -1,37 +1,69 @@
-##  User account creation script in Linux
-Below is a script that automates user creation in Linux
+## Linux User Management Scripts
 
-### Script:
-#!/bin/bash
+📌 Overview
 
-# This script creates a new user on the local system.
-# Enforces that it be executed with superuser (root) privileges.
-# Displays the username, password and host where the account was created.
+This repository contains Bash scripts for managing users on a Linux system. These scripts help automate the process of adding and deleting users efficiently, making them useful for system administrators and security professionals.
 
-# Enforces the script to be executed with superuser privileges.
-if [[ "${UID}" -ne 0 ]]
-then 
-	echo 'Run the script with sudo or as root'
-	exit 1
-fi
+🚀 Scripts Included
 
-# Get the username.
-read -p 'Enter the username to create : ' USER_NAME
+1️⃣ create-linux-user.sh
 
-# Get the real name.
-read -p 'Enter the real name of the person who will be using this account : ' COMMENT
+## Adds a new user to the system.
 
-# Get the password.
-read -p 'Enter the password to use for the new account : ' PASSWORD
+## Prompts for a username and password.
 
-# Create the new user.
-useradd -c "${COMMENT}" -m ${USER_NAME} 
+## Assigns the user to a specific group.
 
-# Inform the user if the account has been created or not 
-if [[ "${?}" -ne 0 ]]
-then
-	echo 'The account has not been created'
-	exit 1
-fi
+## Enforces a password change on first login.
 
-For the full script, check [linux-user-management](creating-local-users.sh)
+2️⃣ delete-linux-user.sh
+
+## Deletes an existing user from the system.
+
+## Removes or retains the user's home directory based on the provided option.
+
+## Disables user accounts instead of deleting them (optional).
+
+🛠️ Installation & Usage
+
+Clone the repository to your Linux system:
+
+git clone https://github.com/Luc-eng001/linux-user-management.git
+
+Navigate to the script directory:
+
+cd linux-user-management
+
+Give execution permission to the scripts:
+
+chmod +x create-linux-user.sh delete-linux-user.sh
+
+## Adding a New User
+
+sudo ./create-linux-user.sh
+
+## Deleting an Existing User
+
+sudo ./delete-linux-user.sh
+
+⚠️ Disclaimer
+
+These scripts modify system user accounts. Use with caution, especially in production environments.
+
+🤝 Contributing
+
+Contributions are welcome! To contribute:
+
+## Fork this repository
+
+## Create a new branch (feature-branch)
+
+## Make your changes and commit (git commit -m 'Added feature')
+
+## Push to GitHub and create a Pull Request
+
+📜 License
+
+This project is licensed under the MIT License – see the LICENSE file for details.
+
+⭐ If you find these scripts useful, give this repository a star on GitHub! ⭐
